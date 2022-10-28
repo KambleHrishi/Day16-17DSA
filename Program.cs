@@ -4,24 +4,34 @@
     {
         public static void Main(string[]args)
         {
-            int[] arr = { 90, 40, 75, 44, 33 };
-            int temp;
-            for (int j = 0; j <= arr.Length - 2; j++)
+            int[] arr = new int[5] { 23, 9, 85, 12, 99 };
+            int n = 5, i, j, val, flag;
+            Console.WriteLine("Insertion Sort");
+            Console.WriteLine("Initial array is: ");
+            for (i = 0; i < n; i++)
             {
-                for (int i = 0; i <= arr.Length - 2; i++)
+                Console.WriteLine(arr[i] + " ");
+            }
+            for (i = 1; i < n; i++)
+            {
+                val = arr[i];
+                flag = 0;
+                for (j = i - 1; j >= 0 && flag != 1;)
                 {
-                    if (arr[i] > arr[i + 1])
+                    if (val < arr[j])
                     {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
+                        arr[j + 1] = arr[j];
+                        j--;
+                        arr[j + 1] = val;
                     }
+                    else flag = 1;
                 }
             }
-            Console.WriteLine("Bubble Sorted:");
-            foreach (int p in arr)
-                Console.Write(p + " ");
-            Console.Read();
+            Console.WriteLine(" \nSorted Array is: ");
+            for (i = 0; i < n; i++)
+            {
+                Console.WriteLine(arr[i] + " ");
+            }
         }
     }
 }
