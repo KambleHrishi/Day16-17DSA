@@ -4,27 +4,24 @@
     {
         public static void Main(string[]args)
         {
-            string str1 = "heart";
-            string str2 = "earth";
-
-            char[] ch1 = str1.ToLower().ToCharArray();
-            char[] ch2 = str2.ToLower().ToCharArray();
-
-            Array.Sort(ch1);
-            Array.Sort(ch2);
-
-            string s1 = new string(ch1);
-            string s2 = new string(ch2);
-
-            if (s1 == s2)
+            int[] arr = { 90, 40, 75, 44, 33 };
+            int temp;
+            for (int j = 0; j <= arr.Length - 2; j++)
             {
-                Console.WriteLine("Anagram");
-
+                for (int i = 0; i <= arr.Length - 2; i++)
+                {
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = temp;
+                    }
+                }
             }
-            else
-            {
-                Console.WriteLine("Not Anagram");
-            }
+            Console.WriteLine("Bubble Sorted:");
+            foreach (int p in arr)
+                Console.Write(p + " ");
+            Console.Read();
         }
     }
 }
